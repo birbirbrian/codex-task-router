@@ -1,0 +1,31 @@
+name: Validate skill
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check required files
+        run: |
+          test -f skills/codex-task-router/SKILL.md
+          test -f skills/codex-task-router/agents/openai.yaml
+          test -f README.md
+          test -f LICENSE
+
+      - name: Verify skill discovery
+        run: npx --yes skills@1.7.0 add . --list --yes

@@ -1,0 +1,9 @@
+# Local agent and sandbox state
+.agents/
+.aws/
+.codex/
+
+# OS and editor files
+.DS_Store
+*.swp
+*~

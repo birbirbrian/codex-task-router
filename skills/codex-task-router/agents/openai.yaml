@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Task Router"
+  short_description: "Choose a cost-aware model and effort for coding tasks"
+  default_prompt: "Use $codex-task-router to recommend a model and reasoning effort for this coding task, then complete it."
